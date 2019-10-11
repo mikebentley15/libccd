@@ -39,7 +39,7 @@ if(NOT WIN32)
   endif()
 endif()
 
-export(TARGETS ccddbl FILE "${CMAKE_BINARY_DIR}/ccddbl-targets.cmake")
+export(TARGETS ccddbl NAMESPACE ccddbl:: FILE "${CMAKE_BINARY_DIR}/ccddbl-targets.cmake")
 
 install(TARGETS ccddbl
   EXPORT ccddbl-targets
@@ -48,7 +48,9 @@ install(TARGETS ccddbl
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
   PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/ccddbl"
   RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}")
-install(EXPORT ccddbl-targets DESTINATION "${CMAKE_INSTALL_LIBDIR}/ccddbl")
+install(EXPORT ccddbl-targets
+  DESTINATION "${CMAKE_INSTALL_LIBDIR}/ccddbl"
+  NAMESPACE ccddbl::)
 
 macro (check_compiler_visibility)
   include (CheckCXXCompilerFlag)
