@@ -19,9 +19,13 @@
 #define __CCD_SIMPLEX_H__
 
 #include <ccd/compiler.h>
+#include <ccd/config.h>
 #include "support.h"
 
 #ifdef __cplusplus
+# ifdef CCD_NAMESPACE
+namespace ccd {
+# endif /* CCD_NAMESPACE */
 extern "C" {
 #endif /* __cplusplus */
 
@@ -99,6 +103,14 @@ _ccd_inline void ccdSimplexSwap(ccd_simplex_t *s, size_t pos1, size_t pos2)
 
 #ifdef __cplusplus
 } /* extern "C" */
+# ifdef CCD_NAMESPACE
+} /* namespace ccd */
+#  ifdef CCD_SINGLE
+namespace ccd_single = ccd; /* namespace alias */
+#  else /* CCD_DOUBLE must be defined */
+namespace ccd_double = ccd; /* namespace alias */
+#  endif /* CCD_SINGLE */
+# endif /* CCD_NAMESPACE */
 #endif /* __cplusplus */
 
 #endif /* __CCD_SIMPLEX_H__ */

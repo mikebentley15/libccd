@@ -19,8 +19,12 @@
 #define __CCD_ALLOC_H__
 
 #include <stdlib.h>
+#include <ccd/config.h>
 
 #ifdef __cplusplus
+# ifdef CCD_NAMESPACE
+namespace ccd {
+# endif /* CCD_NAMESPACE */
 extern "C" {
 #endif /* __cplusplus */
 
@@ -45,6 +49,14 @@ extern "C" {
 
 #ifdef __cplusplus
 } /* extern "C" */
+# ifdef CCD_NAMESPACE
+} /* namespace ccd */
+#  ifdef CCD_SINGLE
+namespace ccd_single = ccd; /* namespace alias */
+#  else /* CCD_DOUBLE must be defined */
+namespace ccd_double = ccd; /* namespace alias */
+#  endif /* CCD_SINGLE */
+# endif /* CCD_NAMESPACE */
 #endif /* __cplusplus */
 
 #endif /* __CCD_ALLOC_H__ */

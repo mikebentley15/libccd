@@ -22,6 +22,9 @@
 #include <ccd/vec3.h>
 
 #ifdef __cplusplus
+# ifdef CCD_NAMESPACE
+namespace ccd {
+# endif /* CCD_NAMESPACE */
 extern "C" {
 #endif /* __cplusplus */
 
@@ -226,6 +229,14 @@ _ccd_inline void ccdQuatRotVec(ccd_vec3_t *v, const ccd_quat_t *q)
 
 #ifdef __cplusplus
 } /* extern "C" */
+# ifdef CCD_NAMESPACE
+} /* namespace ccd */
+#  ifdef CCD_SINGLE
+namespace ccd_single = ccd; /* namespace alias */
+#  else /* CCD_DOUBLE must be defined */
+namespace ccd_double = ccd; /* namespace alias */
+#  endif /* CCD_SINGLE */
+# endif /* CCD_NAMESPACE */
 #endif /* __cplusplus */
 
 #endif /* __CCD_QUAT_H__ */

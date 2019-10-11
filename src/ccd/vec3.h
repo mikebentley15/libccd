@@ -26,6 +26,9 @@
 #include <ccd/ccd_export.h>
 
 #ifdef __cplusplus
+# ifdef CCD_NAMESPACE
+namespace ccd {
+# endif /* CCD_NAMESPACE */
 extern "C" {
 #endif /* __cplusplus */
 
@@ -335,6 +338,14 @@ _ccd_inline void ccdVec3Cross(ccd_vec3_t *d, const ccd_vec3_t *a, const ccd_vec3
 
 #ifdef __cplusplus
 } /* extern "C" */
+# ifdef CCD_NAMESPACE
+} /* namespace ccd */
+#  ifdef CCD_SINGLE
+namespace ccd_single = ccd; /* namespace alias */
+#  else /* CCD_DOUBLE must be defined */
+namespace ccd_double = ccd; /* namespace alias */
+#  endif /* CCD_SINGLE */
+# endif /* CCD_NAMESPACE */
 #endif /* __cplusplus */
 
 #endif /* __CCD_VEC3_H__ */

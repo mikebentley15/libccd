@@ -42,6 +42,14 @@ else
         AC_DEFINE([CCD_DOUBLE], [], [use double precision])
 fi
 
+AC_ARG_ENABLE(ccd-namespace,
+              AS_HELP_STRING([--enable-ccd-namespace],
+                             [enable namespace for C++ (named ccd and
+                              ccd_single for single-precision or ccd_double for
+                              double-precision)]))
+AS_IF([test "x$enable_ccd_namespace" == "xyes"],
+      [AC_DEFINE([CCD_NAMESPACE], [],
+                 [add ccd (and ccd_single or ccd_double) namespaces])])
 
 AC_CONFIG_FILES([Makefile
                  src/Makefile

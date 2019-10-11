@@ -21,6 +21,9 @@
 #include <ccd/vec3.h>
 
 #ifdef __cplusplus
+# ifdef CCD_NAMESPACE
+namespace ccd {
+# endif /* CCD_NAMESPACE */
 extern "C" {
 #endif /* __cplusplus */
 
@@ -149,6 +152,14 @@ CCD_EXPORT int ccdMPRPenetration(const void *obj1, const void *obj2,
 
 #ifdef __cplusplus
 } /* extern "C" */
+# ifdef CCD_NAMESPACE
+} /* namespace ccd */
+#  ifdef CCD_SINGLE
+namespace ccd_single = ccd; /* namespace alias */
+#  else /* CCD_DOUBLE must be defined */
+namespace ccd_double = ccd; /* namespace alias */
+#  endif /* CCD_SINGLE */
+# endif /* CCD_NAMESPACE */
 #endif /* __cplusplus */
 
 #endif /* __CCD_H__ */
