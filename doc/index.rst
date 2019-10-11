@@ -2,7 +2,7 @@
    sphinx-quickstart2 on Thu May 23 13:49:12 2013.
 
 libccddbl's documentation
-=======================
+=========================
 
 See homepage: http://libccddbl.danfis.cz
 
