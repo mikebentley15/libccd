@@ -1,4 +1,4 @@
-# libccddbl [![Build Status](https://travis-ci.org/danfis/libccddbl.svg?branch=master)](https://travis-ci.org/danfis/libccddbl)
+# libccddbl [![Build Status](https://travis-ci.org/mikebentley15/libccddbl.svg?branch=master)](https://travis-ci.org/mikebentley15/libccddbl)
 
 ***libccddbl*** is a fork of the package
 (libccd)[https://github.com/danfis/libccd.git].  This package is intended to
