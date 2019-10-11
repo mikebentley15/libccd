@@ -1,5 +1,3 @@
 *.o
 *.a
-ccddbl/config.h
-ccddbl/config.h.in
 

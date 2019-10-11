@@ -1,7 +1,6 @@
 #ifndef __CCDDBL_CONFIG_H__
 #define __CCDDBL_CONFIG_H__
 
-#cmakedefine CCDDBL_SINGLE
-#cmakedefine CCDDBL_DOUBLE
+#define CCDDBL_DOUBLE
 
 #endif /* __CCDDBL_CONFIG_H__ */

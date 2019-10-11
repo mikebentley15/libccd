@@ -1,23 +1,3 @@
-if(DEFINED CCDDBL_SINGLE OR DEFINED CCDDBL_DOUBLE)
-  # make sure only DOUBLE or SINGLE is set; default to SINGLE
-  if(CCDDBL_SINGLE)
-    set(CCDDBL_DOUBLE OFF)
-  else()
-    set(CCDDBL_SINGLE ON)
-  endif()
-  if(CCDDBL_DOUBLE)
-    set(CCDDBL_SINGLE OFF)
-  endif()
-elseif(ENABLE_DOUBLE_PRECISION)
-    set(CCDDBL_DOUBLE ON)
-    set(CCDDBL_SINGLE OFF)
-else()
-    set(CCDDBL_DOUBLE OFF)
-    set(CCDDBL_SINGLE ON)
-endif()
-
-configure_file(ccddbl/config.h.cmake.in ccddbl/config.h)
-
 set(CCDDBL_INCLUDES
   ccddbl/ccddbl.h
   ccddbl/compiler.h
@@ -26,7 +6,7 @@ set(CCDDBL_INCLUDES
   ccddbl/simplex.h
   ccddbl/support.h
   ccddbl/vec3.h
-  "${CMAKE_CURRENT_BINARY_DIR}/ccddbl/config.h")
+  ccddbl/config.h)
 
 set(CCDDBL_SOURCES
   alloc.h
