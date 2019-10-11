@@ -71,13 +71,6 @@ Other build tools may be using by specifying a different generator. For example:
   > cmake -G "Visual Studio 14 2015" ..
 ```
 
-To compile using double precision, set the `ENABLE_DOUBLE_PRECISION` option:
-```sh
-  $ mkdir build && cd build
-  $ cmake -G "Unix Makefiles" -DENABLE_DOUBLE_PRECISION=ON ..
-  $ make && make install
-```
-
 To build libccddbl as a shared library, set the `BUILD_SHARED_LIBS` option:
 ```sh
   $ mkdir build && cd build

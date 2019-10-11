@@ -22,7 +22,6 @@
 #include <float.h>
 #include <stdlib.h>
 #include <ccddbl/compiler.h>
-#include <ccddbl/config.h>
 #include <ccddbl/ccddbl_export.h>
 
 #ifdef __cplusplus
@@ -30,57 +29,25 @@ extern "C" {
 #endif /* __cplusplus */
 
 
-#ifndef CCDDBL_SINGLE
-# ifndef CCDDBL_DOUBLE
-#  error You must define CCDDBL_SINGLE or CCDDBL_DOUBLE
-# endif /* CCDDBL_DOUBLE */
-#endif /* CCDDBL_SINGLE */
-
 #ifdef WIN32
 # define CCDDBL_FMIN(x, y) ((x) < (y) ? (x) : (y))
 #endif /* WIN32 */
 
-#ifdef CCDDBL_SINGLE
-# ifdef CCDDBL_DOUBLE
-#  error You can define either CCDDBL_SINGLE or CCDDBL_DOUBLE, not both!
-# endif /* CCDDBL_DOUBLE */
-
-typedef float ccddbl_real_t;
-
-//# define CCDDBL_EPS 1E-6
-# define CCDDBL_EPS FLT_EPSILON
-
-# define CCDDBL_REAL_MAX FLT_MAX
-
-# define CCDDBL_REAL(x) (x ## f)   /*!< form a constant */
-# define CCDDBL_SQRT(x) (sqrtf(x)) /*!< square root */
-# define CCDDBL_FABS(x) (fabsf(x)) /*!< absolute value */
-# define CCDDBL_FMAX(x, y) (fmaxf((x), (y))) /*!< maximum of two floats */
-
-# ifndef CCDDBL_FMIN
-#  define CCDDBL_FMIN(x, y) (fminf((x), (y))) /*!< minimum of two floats */
-# endif /* CCDDBL_FMIN */
-
-#endif /* CCDDBL_SINGLE */
-
-#ifdef CCDDBL_DOUBLE
 typedef double ccddbl_real_t;
 
-//# define CCDDBL_EPS 1E-10
-# define CCDDBL_EPS DBL_EPSILON
+//#define CCDDBL_EPS 1E-10
+#define CCDDBL_EPS DBL_EPSILON
 
-# define CCDDBL_REAL_MAX DBL_MAX
+#define CCDDBL_REAL_MAX DBL_MAX
 
-# define CCDDBL_REAL(x) (x)       /*!< form a constant */
-# define CCDDBL_SQRT(x) (sqrt(x)) /*!< square root */
-# define CCDDBL_FABS(x) (fabs(x)) /*!< absolute value */
-# define CCDDBL_FMAX(x, y) (fmax((x), (y))) /*!< maximum of two floats */
+#define CCDDBL_REAL(x) (x)       /*!< form a constant */
+#define CCDDBL_SQRT(x) (sqrt(x)) /*!< square root */
+#define CCDDBL_FABS(x) (fabs(x)) /*!< absolute value */
+#define CCDDBL_FMAX(x, y) (fmax((x), (y))) /*!< maximum of two floats */
 
-# ifndef CCDDBL_FMIN
-#  define CCDDBL_FMIN(x, y) (fmin((x), (y))) /*!< minimum of two floats */
-# endif /* CCDDBL_FMIN */
-
-#endif /* CCDDBL_DOUBLE */
+#ifndef CCDDBL_FMIN
+# define CCDDBL_FMIN(x, y) (fmin((x), (y))) /*!< minimum of two floats */
+#endif /* CCDDBL_FMIN */
 
 #define CCDDBL_ONE CCDDBL_REAL(1.)
 #define CCDDBL_ZERO CCDDBL_REAL(0.)

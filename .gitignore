@@ -9,6 +9,5 @@ install-sh
 ltmain.sh
 missing
 *~
-src/gjk/config.h.in
 build/*
 ccd.pc
