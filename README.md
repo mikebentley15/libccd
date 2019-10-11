@@ -46,57 +46,7 @@ licensed under 3-clause BSD License.
 
 ## Compile And Install
 
-libccddbl contains several mechanisms for compiling and installing. Using a
-simple Makefile, using autotools, and using CMake.
-
-### 1. Using Makefile
-
-Directory src/ contains Makefile that should contain everything needed for
-compilation and installation:
-```sh
-  $ cd src/
-  $ make
-  $ make install
-```
-
-Library libccddbl is by default compiled in double precision of floating point
-numbers - you can change this by options *USE_SINGLE/USE_DOUBLE*, i.e.:
-```sh
-  $ make USE_SINGLE=yes
-```
-will compile library in single precision.
-
-Installation directory can be changed by options PREFIX, INCLUDEDIR and LIBDIR. 
-For more info type 'make help'.
-
-### 2. Using Autotools
-
-libccddbl also contains support for autotools:
-Generate configure script etc.:
-```sh
-  $ ./bootstrap
-```
-
-Create new build/ directory:
-```sh
-  $ mkdir build && cd build
-```
-
-Run configure script:
-```sh
-  $ ../configure
-```
-
-Run make and make install:
-```sh
-  $ make && make install
-```
-
-configure script can change the way libccddbl is compiled and installed, most
-significant option is *--enable-double-precision* which enables double
-precision (single is default in this case).
-
-### 3. Using CMake
+libccddbl is to be compiled using CMake.
 
 To build using `make`:
 ```sh
